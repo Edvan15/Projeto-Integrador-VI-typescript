@@ -1,17 +1,23 @@
 const express = require('express');
-
 const app = express();
-const PORT = 3000;
+
+app.use(express.json());
+
+const produtos = [
+  {id:1, nome: 'Notebook', preco: 3500},
+  {id:2, nome: 'mouse', preco: 120}
+];
 
 app.get('/produtos', (req, res) => {
-  res.json(prod);
+  res.json(produtos);
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+app.post('/produtos', (req, res) => {
+  const produto = {id: produtos.length + 1, ...req.body};
+  produtos.push(produto);
+  res.status(201).json(produto);
 });
 
-const prod = [
-  {id:1, nome: 'Produto 1', preco: 10.99},
-  {id:2, nome: 'Produto 2', preco: 19.99}
-]
+app.listen(3000, () => {
+  console.log('Servidor rodando na porta 3000');
+});
