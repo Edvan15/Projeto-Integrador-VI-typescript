@@ -4,7 +4,6 @@ class Produto {
     this.nome = nome;
     this.preco = preco;
   }
-
   estaEmPromocao() {
     return this.preco < 100;
   }
