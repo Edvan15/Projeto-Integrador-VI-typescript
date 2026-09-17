@@ -1,18 +1,4 @@
-const produtos = [
-  { id: 1, nome: "Notebook", preco: 3500 }
-];
-
-exports.listar = (req, res) => {
-  res.json(produtos);
-};
-
-exports.criar = (req, res) => {
-  const produto = { id: 2, ...req.body };
-  produtos.push(produto);
-  res.status(201).json(produto);
-};
-
-const service = require("../services/produto.service");
+const service = require("../service/produto.service");
 
 exports.listar = (req, res) => {
   const produtos = service.listar();

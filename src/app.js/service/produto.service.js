@@ -27,17 +27,3 @@ function criar(dados) {
 }
 
 module.exports = { listar, buscarPorId, criar };
-
-const Produto =
-  require("../models/produto.model");
-
-function criar(dados) {
-  const produto = new Produto({
-    id: produtos.length + 1,
-    nome: dados.nome,
-    preco: dados.preco
-  });
-
-  produtos.push(produto);
-  return produto;
-}
